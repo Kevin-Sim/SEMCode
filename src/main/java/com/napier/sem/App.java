@@ -32,9 +32,11 @@ public class App
 			try
 			{
 				// Wait a bit for db to start
-				Thread.sleep(10000);
+				Thread.sleep(0);
 				// Connect to database
-				con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
+//				con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
+				con = DriverManager.getConnection("jdbc:mysql://localhost:33060/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
+
 				System.out.println("Successfully connected");
 				// Wait a bit
 				Thread.sleep(1000);
@@ -54,8 +56,23 @@ public class App
 
 		if (con != null)
 		{
+
 			try
 			{
+				// Create an SQL statement
+				Statement stmt = con.createStatement();
+				// Create string for SQL statement
+				String strSelect = "SELECT * FROM city";
+				// Execute SQL statement
+				ResultSet rset = stmt.executeQuery(strSelect);
+				// Return new employee if valid.
+				// Check one is returned
+				while (rset.next())
+				{
+					int ID = rset.getInt("ID");
+					String name = rset.getString("Name");
+					System.out.println(name);
+				}
 				// Close connection
 				con.close();
 			}
