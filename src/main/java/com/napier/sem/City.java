@@ -1,6 +1,8 @@
 package com.napier.sem;
 
-
+/**
+ * A city
+ */
 public class City {
 
   private long id;

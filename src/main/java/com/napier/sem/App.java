@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 /**
  * Demo App
@@ -34,8 +35,8 @@ public class App
 				// Wait a bit for db to start
 				Thread.sleep(0);
 				// Connect to database
-//				con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
-				con = DriverManager.getConnection("jdbc:mysql://localhost:33060/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
+				con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
+//				con = DriverManager.getConnection("jdbc:mysql://localhost:33060/world?useSSL=false&allowPublicKeyRetrieval=true", "root", "example");
 
 				System.out.println("Successfully connected");
 				// Wait a bit
@@ -81,5 +82,13 @@ public class App
 				System.out.println("Error closing connection to database");
 			}
 		}
+	}
+
+	public void printCityReport(City city) {
+		System.out.println(city);
+	}
+
+	public void printCityReport(ArrayList<City> cities) {
+
 	}
 }
