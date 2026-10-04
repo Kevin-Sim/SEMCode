@@ -2,19 +2,19 @@ name: A workflow for my App
 on: push
 
 jobs:
-#  UnitTests:
-#    name: Unit Test Build Action
-#    runs-on: ubuntu-22.04
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v5
-#      - name: Set up JDK 17
-#        uses: actions/setup-java@v5
-#        with:
-#          java-version: '17'
-#          distribution: 'temurin'
-#      - name: Unit Tests
-#        run: mvn -Dtest=com.napier.sem.MyTest test
+  UnitTests:
+    name: Unit Test Build Action
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Unit Tests
+        run: mvn -Dtest=com.napier.sem.AppTest test
 
   Build:
     name: Build and Start Using docker-compose
